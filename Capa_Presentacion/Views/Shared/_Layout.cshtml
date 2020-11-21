@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .my_navbar {
+        overflow: hidden;
+        background-color: #333;
+    }
+
+        .my_navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+    .my_dropdown {
+        float: left;
+        overflow: hidden;
+    }
+
+        .my_dropdown .my_dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .my_navbar a:hover, .my_dropdown:hover .my_dropbtn {
+            background-color: red;
+        }
+
+    .my_dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        .my_dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+            .my_dropdown-content a:hover {
+                background-color: #ddd;
+            }
+
+    .my_dropdown:hover .my_dropdown-content {
+        display: block;
+    }
+</style>
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="my_navbar">
+            @Html.ActionLink("Recursos Humanos", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <div class="my_dropdown">
+                <button class="my_dropbtn">
+                    Crear
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="my_dropdown-content">
+                    <a href="/Empleado/Create">Empleado</a>
+                    <a href="/Proceso/Index">Departamento</a>
+                    <a href="/Informes/Index">Cargo</a>
+                </div>
+            </div>
+            <a href="/Proceso/Index">Procesos</a>
+            <a href="/Informes/Index">Informes</a>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
